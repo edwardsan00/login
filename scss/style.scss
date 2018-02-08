@@ -1,0 +1,135 @@
+@import "icon-fonts";
+*{
+    box-sizing: border-box;
+}
+$tablet: 760px;
+$web: 1100px;
+body{
+    background-color: rgb(231, 231, 231);
+    font-family: "Roboto";
+}
+.grid, {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(1, 100vh);
+}
+.container{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);    
+    grid-column: 1 / span 12;    
+    @media screen and(min-width: $tablet){
+        grid-column: 1 / span 12;   
+        align-content: baseline;
+    }
+    @media screen and(min-width: $web){
+        grid-column: 3 / span 8;
+        align-content: center;
+    }
+}
+.login{
+    grid-column: 1 / span 12;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: white;
+    @media screen and (min-width: $tablet){
+        height: 100vh;
+        grid-column: 1 / span 4;
+        box-shadow: 2px 0px 10px rgba(0,0,0,.2);
+    }
+    @media screen and (min-width: $web){
+        height: 550px;
+    }
+    &__logo{
+       margin-top: 0;
+    }
+    &__tittle{
+        font-weight: 300;
+        color: rgb(180, 180, 180);
+    }
+    &__text{
+        padding-bottom: .5em;
+        padding-top: .5em;
+        border: none;
+        border-bottom: solid 1px rgb(235, 235, 235);
+        font-weight: 300;
+        color: rgb(46, 46, 46);
+        padding-left: .5em;
+        & + &{
+            border-bottom: none;
+        }
+    }
+    &__btn{
+        margin-top: 2em;
+        width: 13rem;
+        height: 2rem;
+        background-color: #FE5D3C;
+        color: white;
+        font-weight: 400;
+        border: none;
+        font-size: .9em;
+        border-radius: 20px;
+        position: relative;
+        overflow: hidden;
+    }
+    &__icon-derecha{
+        display: block;
+        position: absolute;
+        font-size: .7em;
+        top:1em;
+        right: 1.8em;
+    }
+
+}
+.hope{
+    display: none;
+    @media screen and (min-width: $tablet) {
+        display: flex;
+        align-items: center;
+        height: 100vh;
+        grid-column: 5 / span 8;
+        background: linear-gradient(90deg, rgba(0,0,0,.5) 0%, rgba(0,0,0, .5) 100%), url("../img/fondo.jpg");
+        background-position: center;
+        background-size: cover;
+        box-shadow: 2px 0px 10px rgba(0,0,0,.2);    
+        &__text{
+            color: rgba(255,255,255,.8);
+            font-size: 1.3em;
+            padding-left: 2em;
+            padding-top: 2em;
+            line-height: 1.2;
+            font-weight: 300;
+        }
+    }
+    @media screen and(min-width: $web){
+        height: 550px;
+    }
+}
+
+
+
+
+
+
+
+
+.circle{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    border-radius: 50%;    
+    animation: expandir 1s;
+}
+@keyframes expandir{
+    from{
+        transform: scale(0);
+        background-color: rgb(255, 194, 184);
+    }
+    to{
+        transform: scale(20);
+        background-color: transparent;
+        display: none;
+    }
+}
